@@ -5,7 +5,7 @@
 char n[1024], b;
 
 int main() {
-  while (scanf("%s", n) != EOF) {
+  while (gets(n) != NULL) {
     if (b)
       printf("\n");
     else b = 1;
@@ -16,9 +16,7 @@ int main() {
       printf("0\n0");
     else if (n[0] == '1' && l == 1)
       printf("2\n0");
-    else 
-    {
-    	
+    else {
       for (;i < t; i++) {
         if (i < l)
           v[i] += (n[l - i - 1] - 48) * 2;
@@ -31,7 +29,9 @@ int main() {
         if (f)
           printf("%d", v[t]);
       }
+      
       printf("\n");
+      
       for (i = 0; i < l; i++) {
         if (n[i] == 1) {
           n[i + 1] += 10;

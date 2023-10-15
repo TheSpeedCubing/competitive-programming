@@ -1,21 +1,21 @@
 #include <stdio.h>
 
 int main() {
-    char n[10000], m[10000];
+    char n[32768], m[32768];
     while (scanf("%s %s", n, m) != EOF) {
-        int c[256] = {0}, count, last = 32,i=0,j=0;
-        for (;n[i]; i++) {
-            if (last != n[i]) {
-                if (c[last] < count)
-                    c[last] = count;
-                count = 1;
-            } else
-                count++;
-            last = n[i];
+        int c[256] = {0}, count = 0, i=0,j=0;
+        while(n[i]) {
+            count++;
+            if (n[i] != n[i+1]) {
+                if (c[n[i]] < count)
+                    c[n[i]] = count;
+                count = 0;
+            }
+            i++;
         }
-        if (c[last] < count)
-            c[last] = count;
-        for (; m[j]; j++)
+        while(m[j]) {
             printf(m[j+1] ? "%d " : "%d\n", c[m[j]]);
+            j++;
+        }
     }
 }
