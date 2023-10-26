@@ -21,7 +21,7 @@ public class Main {
                 for (int j = 0; j < q; j++)
                     System.out.print((char) result[j][i]);
                 System.out.println();
-			}
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
