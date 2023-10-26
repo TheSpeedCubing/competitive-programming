@@ -3,7 +3,7 @@ import java.util.*;
 
 class Main {
 
-    static List<Matrix> m = new ArrayList<>();
+    static Matrix[] m = new Matrix[26];
 
     public static void main(String[] args) {
         try {
@@ -11,7 +11,7 @@ class Main {
             int n = Integer.parseInt(reader.readLine());
             for (int i = 0; i < n; i++) {
                 String[] s = reader.readLine().split(" ");
-                m.add(new Matrix(Integer.parseInt(s[1]), Integer.parseInt(s[2]), -1));
+                m[i] = new Matrix(Integer.parseInt(s[1]), Integer.parseInt(s[2]));
             }
             String s;
             c:
@@ -20,7 +20,7 @@ class Main {
                 long result = 0;
                 for (int i = 0; i < s.length(); i++) {
                     if (Character.isUpperCase(s.charAt(i)))
-                        to.add(m.get(s.charAt(i) - 'A'));
+                        to.add(m[s.charAt(i) - 'A']);
                     else if (s.charAt(i) == ')') {
                         Matrix m1 = to.get(to.size() - 2);
                         Matrix m2 = to.get(to.size() - 1);
@@ -30,10 +30,9 @@ class Main {
                             System.out.println("error");
                             continue c;
                         } else {
-                            int actualSize = m2.x * m2.y * m1.x;
-                            Matrix newMatrix = new Matrix(m1.x, m2.y, actualSize);
+                            Matrix newMatrix = new Matrix(m1.x, m2.y);
                             to.add(newMatrix);
-                            result += actualSize;
+                            result += (long) m2.x * m2.y * m1.x;
                         }
                     }
                 }
@@ -47,12 +46,10 @@ class Main {
     static class Matrix {
         int x;
         int y;
-        int size;
 
-        public Matrix(int x, int y, int size) {
+        public Matrix(int x, int y) {
             this.x = x;
             this.y = y;
-            this.size = size;
         }
     }
 }
