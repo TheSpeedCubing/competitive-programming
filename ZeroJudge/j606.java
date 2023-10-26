@@ -17,10 +17,11 @@ public class Main {
                 for (int j = 0; j < k; j++)
                     result[i][Integer.parseInt(arr[j]) - 1] = (i == 0 ? s : result[i - 1])[j];
             }
-            for (int i = 0; i < r; i++)
+            for (int i = 0; i < r; i++) {
                 for (int j = 0; j < q; j++)
                     System.out.print((char) result[j][i]);
                 System.out.println();
+			}
         } catch (Exception e) {
             e.printStackTrace();
         }
