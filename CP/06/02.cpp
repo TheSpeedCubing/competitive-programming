@@ -1,12 +1,13 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
 int main() {
     int k,kinvert,t,i;
     char n[1024], c;
-    scanf("%d", &t);
+    cin >> t;
         while(t--){
             kinvert = i = 0;
-            scanf("%d%s", &k, n);
+            cin >> k >> n;
             while(kinvert * k%37 - 1)
                 kinvert++;
             while(c = n[i]){
@@ -14,9 +15,9 @@ int main() {
           	        (c == '+' ? 0:
         	            (c - (c > 64 ? 64 : 21))
         	        ) % 37;
-                printf("%c", c ? c + (c > 26 ?21 :64) : '+');
+        	       cout << (char) (c ? c + (c > 26 ?21 :64) : '+');
                 i++;
             }
-        printf("\n");
+        cout <<"\n";
     }
 }

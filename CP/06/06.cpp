@@ -1,13 +1,14 @@
-#include <stdio.h>
-#include <string.h>
+#include <iostream>
+#include <string>
+using namespace std;
 
 int v[1024], z = 1023, i, b;
 int main() {
-    char n[1024];
-    while (scanf("%s", n) != EOF) {
+    string n;
+    while (getline(cin,n)) {
         for (i = 0; i < z; i++) {
-            if (i < strlen(n))
-                v[i] += n[strlen(n) - i - 1] - 48;
+            if (i < n.length())
+                v[i] += n[n.length() - i - 1] - 48;
             v[i + 1] += v[i] / 10;
             v[i] %= 10;
         }
@@ -15,8 +16,8 @@ int main() {
     while (z--) {
         if (v[z])
             b = 1;
-        if (b)
-            printf("%d", v[z]);
+        if(b)  
+        cout << v[z];
     }
-    printf("\n");
+    cout <<"\n";
 }

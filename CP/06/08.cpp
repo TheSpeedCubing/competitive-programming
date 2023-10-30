@@ -1,21 +1,22 @@
-#include <stdio.h>
+#include <iostream>
 
-#include <string.h>
-
-char n[1024], b;
+#include <string>
+using namespace std;
 
 int main() {
-  while (gets(n) != NULL) {
+	int b = 0;
+	string n;
+  while (getline(cin,n)) {
     if (b)
       printf("\n");
     else b = 1;
     	
-    int l = strlen(n) , v[1024]={0},i=0,f=0,c=0,m,t=1023;
+    int l = n.length() , v[1024]={0},i=0,f=0,c=0,m,t=1023;
 
-    if (n[0] == '0')
-      printf("0\n0");
-    else if (n[0] == '1' && l == 1)
-      printf("2\n0");
+    if (n == "0")
+      cout << "0\n0";
+    else if (n == "1")
+       cout <<"2\n0";
     else {
       for (;i < t; i++) {
         if (i < l)
@@ -27,10 +28,10 @@ int main() {
         if (v[t])
           f = 1;
         if (f)
-          printf("%d", v[t]);
+          cout << v[t];
       }
       
-      printf("\n");
+      cout <<"\n";
       
       for (i = 0; i < l; i++) {
         if (n[i] == 1) {
@@ -40,7 +41,7 @@ int main() {
         	if(!c)
         	  c= m;
           if (n[i] && c || m)
-            printf("%d", m);
+             cout << m;
           if ((n[i] - 48) % 2 != 0)
             n[i + 1] += 10;
         }

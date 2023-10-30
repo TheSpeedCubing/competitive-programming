@@ -1,8 +1,9 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
 int main() {
-    char n[32768], m[32768];
-    while (scanf("%s %s", n, m) != EOF) {
+    string n,m;
+    while (cin >> n >> m) {
         int c[256] = {0}, count = 0, i=0,j=0;
         while(n[i]) {
             count++;
@@ -14,7 +15,7 @@ int main() {
             i++;
         }
         while(m[j]) {
-            printf(m[j+1] ? "%d " : "%d\n", c[m[j]]);
+        	cout << c[m[j]] << (m[j+1]?" ":"\n");
             j++;
         }
     }

@@ -35,5 +35,4 @@ int main() {
             y += 9223372036854775808;
         printf("%g %g %llu\n", x, y, y);
     }
-    return 0;
 }

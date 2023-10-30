@@ -10,8 +10,8 @@ int main() {
 		for (; i<s.length(); i++){
 			c = tolower(s[i]);
 			if (islower(c)) {
-		        if (c == 'a' || c=='e'||c=='i'||c=='o'||c=='u')
-				    a+=1;
+		    if ((0x208222>>c)&1)
+				  a+=1;
 				else b+=1;
 			}
 		}

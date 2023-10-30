@@ -1,15 +1,16 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
 int main(){
   double x;
-  while(scanf("%lf", &x)!=EOF){
+  while(cin >> x){
       int n = 52;
       x--;
       while(n--){
         x *= 2;
-        printf("%d", x >= 1);
+        cout << (x>=1);
         x -= x >= 1 ? 1 : 0;
       }
-      printf("\n");
+      cout <<"\n";
     }
 }

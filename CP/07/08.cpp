@@ -1,10 +1,11 @@
-#include <stdio.h>
+#include <iostream>
 #include <math.h>
+using namespace std;
 
 int main() {
     double val;
-    while (scanf("%lf", & val) != EOF) {
-        int fe = floor(log10(fabs(val))), flag = fe >= 0;
-        printf("%s%d\n", flag ? "+" : "", flag ? fe + 1 : fe);
+    while (cin >> val) {
+        int fe = floor(log10(abs(val))), flag = fe >= 0;
+        cout << (flag ? "+" : "") << (flag ? fe + 1 : fe) << "\n";
     }
 }
