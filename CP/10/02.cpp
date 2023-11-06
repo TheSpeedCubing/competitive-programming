@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstdio>
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -8,7 +7,7 @@ int main()
 {
 	int c,k,m,l;
 	while(cin >> c >> k >> m >> l){
-		int cp = l,last;
+		int cp = l;
 		vector<int> s;
 		while(1) {
 		  l = (c * l + k)%m;

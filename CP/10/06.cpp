@@ -15,7 +15,7 @@ int main()
 	  			 res2 -= HELLOMYFRIEND[c*9+j];
 	  		   res3 -= HELLOMYFRIEND[c*3 + c/3*18 + j +j/3*6];
 	  		}
-	  		flag = flag && res == 0 && res2 == 0 &&res3==0;
+	  		flag = flag && !(res || res2 || res3);
 	  	}
 	  	printf(flag?"Yes\n":"No\n");
 	  }
