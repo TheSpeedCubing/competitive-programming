@@ -10,9 +10,7 @@ int main() {
 		for (; i<s.length(); i++){
 			c = tolower(s[i]);
 			if (islower(c)) {
-		    if ((0x208222>>c)&1)
-				  a+=1;
-				else b+=1;
+		     ((0x208222>>c)&1 ? a : b) ++;
 			}
 		}
 		cout << a<<"/"<<b<<"/"<<s.length()<<"\n";
