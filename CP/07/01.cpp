@@ -9,7 +9,7 @@ int main(){
       while(n--){
         x *= 2;
         cout << (x>=1);
-        x -= x >= 1 ? 1 : 0;
+        x -= (x >= 1);
       }
       cout <<"\n";
     }
