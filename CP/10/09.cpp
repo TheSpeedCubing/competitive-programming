@@ -5,15 +5,14 @@ int main()
 {
       int a , b;
       while(cin >> a >> b) {
-          int copy = a;
-            int t[a], m[b], i = 0,j = 0;
-            for(;j<a;j++){
+          int copy = a, t[a], m[b], i = 0,j = 0;
+            for(;j<a;j++) {
                 cin >> t[j];
             }
             for(;i<b;i++){
                 cin >> m[i];
               for(j = 0;j<a;j++) {
-                  if(t[j] != -1 && m[i] != 0 && t[j] % m[i] == 0) {
+                  if(t[j] != -1 && m[i] && !(t[j] % m[i])) {
                       cout << t[j] <<(copy == 1 ?"\n": " ");
                       copy--;
                       t[j] = -1;
