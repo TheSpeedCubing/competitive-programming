@@ -8,9 +8,9 @@ int main() {
 	char c;
 	while(cin >> c) {
 		 cin.ignore();
-		 string s = "";
-		 if(c == '1'){ 
-		 	long long i;
+		 string s; 
+		 long long i = 0;
+		 if(c == '1'){
 		 	 cin >> i;
 		 	 cin.ignore();
         while (i) {
@@ -20,10 +20,10 @@ int main() {
         cout << s <<"\n";
 		 } else {
 		   getline(cin,s);
-		   long long result = 0 , t = s.length();
+		   int t = s.length();
 		   while(t--)
-		   result += (s[s.length()-t-1] - 'A') * pow(16,t);
-           cout << result <<"\n";
+		     i += (s[s.length()-t-1] - 'A') * pow(16,t);
+       cout << i <<"\n";
 		 }
 	}
 }
