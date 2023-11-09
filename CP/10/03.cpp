@@ -15,7 +15,7 @@ int main() {
         a *= 10;
         result += to_string(a / b);
         a %= b;
-        if (a == 0) {
+        if (!a) {
           i = 0;
           break;
         }
