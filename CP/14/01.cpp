@@ -16,7 +16,7 @@ int main() {
 	  	      cin >> n;
 	     }
 	     while(d--)
-	     	  if(data[d] != 0) {
+	     	  if(data[d]) {
 	     	    result[0]++;
 	     	    result[data[d]]++;
 	     	  }
