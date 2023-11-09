@@ -13,8 +13,8 @@ int main()
         for(i = cnt - 1 ; i ;i--)
             dist[i-1] = dist[i] + size / 2.0 / i;
         for(i = 0;i < cnt;i++) {
-        	int j = 0,cp=size;
-        	for(;j<floor(dist[i]);j++)
+        	int j = floor(dist[i]),cp=size;
+        	while(j--)
         		printf(" ");
         	while(cp--)
 			    	printf("*");
