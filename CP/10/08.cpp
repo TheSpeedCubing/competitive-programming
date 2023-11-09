@@ -5,10 +5,9 @@ using namespace std;
 
 string s;
 int search(string data){
-	int c = 0;
+	  int c = 0;
 		for(char ch : s) {
-			if(data[c] == tolower(ch))
-			  c++;
+			c+= (data[c] == tolower(ch));
 			if(!data[c])
 			  return 0;
 		}
