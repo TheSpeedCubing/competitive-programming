@@ -1,31 +1,40 @@
-#include <stdio.h>
-#include <math.h>
+#include <iostream>
+#include <algorithm>
+using namespace std;
 
-int main() {
-    double d, e, f, flag = 1;
-    while (scanf("%lf %lf %lf", & d, & e, & f) != EOF) {
-    	
-        if (flag)
-            flag = 0;
-        else
-            printf("\n");
-
-        double a = fmax(d, fmax(e, f)), c = fmin(d, fmin(e, f)), b = d + e + f - a - c;
+int main()
+{
+    double n = 1, t[3];
+    
+    
+    while(cin >> t[0] >> t[1] >> t[2]) {
+        if (n) 
+           n = 0;
+        else printf("\n");
         
-
-        if (a >= b + c)
-            printf("Not a triangle\n");
+        sort(t, t + 3);
+         
+        double max = t[2], max2 = max*max,
+               mid = t[1],
+               min = t[0], comb = mid*mid+min*min;
+                
+        if(max >= mid + min) 
+          cout<<"Not a triangle\n";
         else {
-            if (a * a < b * b + c * c)
-                printf("Acute triangle\n");
-            if (a * a == b * b + c * c)
-                printf("Right triangle\n");
-            if (a * a > b * b + c * c)
-                printf("Obtuse triangle\n");
-            if (((b > c || c > b) && a == b) || (b == c && (a > b || a < b)))
-                printf("Isosceles triangle\n");
-            if (a == b && b == c)
-                printf("Equilateral triangle\n");
+           if(max2 == comb)
+              cout<<"Right triangle\n";
+              
+            if(max2 > comb)
+              cout<<"Obtuse triangle\n";  
+              
+            if(max2 < comb)
+              cout<<"Acute triangle\n";
+              
+            if(max == mid && mid == min)
+              cout<<"Equilateral triangle\n";
+              
+            if((max == mid && mid != min)||(max != mid && mid == min))
+              cout<<"Isosceles triangle\n";
         }
     }
 }
