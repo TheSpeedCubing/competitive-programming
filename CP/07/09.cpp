@@ -19,6 +19,6 @@ int main() {
         if(ver==83) y1 = -y1;
         if(hor2==87) x2 = -x2;
         if(ver2==83) y2 = -y2;
-        printf("%d\n",(int) abs(6000*acos(a(y1)*a(y2)+b(y1)*b(y2)*(a(x1)*a(x2)+b(x1)*b(x2)))));
+        cout << (int) abs(6000*acos(a(y1)*a(y2)+b(y1)*b(y2)*(a(x1)*a(x2)+b(x1)*b(x2)))) << "\n";
     }
 }
