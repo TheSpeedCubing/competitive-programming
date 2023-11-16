@@ -19,10 +19,11 @@ int main() {
         cout << s <<"\n";
 		 } else {
 		 	 cin >> s;
-		   int t = s.length();
-		   while(t--)
-		     i += (s[s.length()-t-1] - 'A') * pow(16,t);
-       cout << i <<"\n";
+		 	 for(char c : s){
+		 	 	  i += c-'A';
+		 	 	  i*=16;
+		 	 }
+       cout << i/16 <<"\n";
 		 }
 	}
 }
