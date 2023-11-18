@@ -2,14 +2,15 @@
 #include <cmath>
 using namespace std;
 
+int yy,mm,m2,flag;
+
 int main()
 {
-	int yy,mm,m2,flag=1;
-	while(cin >> yy >> mm >> m2){
+	while(cin >> yy >> mm >> m2) {
 		
 		if(flag)
-		  flag=0;
-		else cout <<"\n";
+		  cout <<"\n";
+		else flag = 1;
 		
 		int data[] = {-1,31,28,31,30,31,30,31,31,30,31,30,31};
 		
