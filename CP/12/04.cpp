@@ -1,18 +1,19 @@
 #include <iostream>
-#include <cstdio>
 
 using namespace std;
 
+ int yy,mm,flag;
+ 
 int main()
 {
 	string month[] = {"","January","February","March","April","May","June","July","August","September","October","November","December"};
-  int yy,mm,flag = 1;
+ 
   
   while(cin >> yy >> mm) {
   	
   	   if(flag)
-  	     flag = 0;
-  	   else cout <<"\n";
+  	     cout <<"\n";
+  	   else flag = 1;
   	   
   	   mm = -mm;
   	   
