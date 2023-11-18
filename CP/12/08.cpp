@@ -1,17 +1,15 @@
 #include <iostream>
-#include <cstdio>
 
 using namespace std;
 
 int isBachelorNum(int n)
 {
-	n = n < 0 ? -n : n;
+	  n = max(-n,n);
 	  bool b[128] = {0};
 	  {
 	  	while(n){
-	  		if(b[n%10]){
+	  		if(b[n%10])
 	  			return 0;
-	  		}
 	  		 b[n%10] = 1;
 	  		 n/=10;
 	  	}
