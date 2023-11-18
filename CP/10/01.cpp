@@ -15,12 +15,12 @@ using namespace std;
 int main()
 {
 	
-	int a,b,flag=1;
+	int a,b;
 	while(cin >> a >>b) {
 		while(a != b){
 		  solve(a);
 		  cout<<"\n";
-		  a += a > b ? -1 : 1;	
+		  a > b ? a-- : a++;	
 		}
 		solve(a);
 		cout <<"----------\n";
