@@ -3,15 +3,15 @@
 
 using namespace std;
 
+int flag;
 int main()
 {
     string s;
-    int flag = 1;
+    
     while(getline(cin,s)){
     	if(flag)
-    	  flag=0;
-    	else
     	   cout <<"\n";
+    	else flag=1;
     	   
     	 char n[1024][1024] = {0};
     	 int max[1024] = {0} , row = 0,column=0,maxcol=0,f=1,i=0;
