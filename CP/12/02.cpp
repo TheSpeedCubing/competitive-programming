@@ -3,10 +3,10 @@
 using namespace std;
 
 
-int daysInYYMM(int year, int month) {
-	int dt[] = {-1,31,28,31,30,31,30,31,31,30,31,30,31};
-	dt[2] += ((!(year % 4) && year % 100) || !(year % 400));
-  return dt[month];
+int daysInYYMM(int yy, int mm) {
+ int dt[] = {0,31,28+((!(yy % 4) && yy % 100) || !(yy % 400))
+		,31,30,31,30,31,31,30,31,30,31};
+  return dt[mm];
 }
 
 int isDateValid(int year, int month, int day){
