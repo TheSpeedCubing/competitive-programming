@@ -2,23 +2,24 @@
 #include <string>
 using namespace std;
 
-
-void showBusinessNum(long long n){
-		bool rev = n < 0;
-		string s2 = to_string(rev ? -n : n);
-		int l = s2.length();
-		string s;
-		for(int i = 0;i<l;i++){
-			s += s2[i];
-			if(((i + 1 - l%3) % 3) == 0 && i != l-1)
-				s+=",";
-		}
-	cout << (rev ?"(":"") << s<< (rev ?")":"")<<"\n";
-}
 int main()
 {
 	long long n;
 	while(cin >> n){
-	   showBusinessNum(n);
+		string s2 = to_string(max(-n,n));
+		int rev = n < 0, l = s2.length(), i = 0;
+		
+		if(rev)
+		  cout <<"(";
+		
+		while(i < l) {
+			
+			cout << s2[i++];
+			
+			if(s2[i] && !((l - i) % 3))
+				cout << ",";
+		
+		}
+	  cout << (rev ? ")\n" : "\n");
 	}
 }
