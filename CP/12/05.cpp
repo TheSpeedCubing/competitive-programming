@@ -35,7 +35,6 @@ int readData() {
 	
 	int mid = s[2],
 	    diff = 1,
-	    cap = 0,
 	    isFlush = 1, 
 	    isStraight = 1;
 	
