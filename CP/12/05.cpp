@@ -39,9 +39,10 @@ int readData() {
 	    isStraight = 1;
 	
 	i = 0;
+	
 	while(i<4) {
 		 int t = s[i+1] - s[i];
-		 if(t != 1 && (i != 3 || s[i+1] != 14))
+		 if(t != 1 && (s[i+1] != 14 || s[0] != 2))
 		 	   isStraight = 0;
 		 	   
 		 if(t)
@@ -74,6 +75,7 @@ int readData() {
 	  ty = 2;
 	}
 	else ty = 1;
+	
 	if(state) {
 		i = 0;
 		while(i<5) {
