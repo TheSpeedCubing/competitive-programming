@@ -2,15 +2,6 @@
 
 using namespace std;
 
-int getDigit(long long n) {
-  int i = 0;
-  while (n) {
-    n /= 10;
-    i++;
-  }
-  return i;
-}
-
 long long pow(int n) {
   long long i = 1;
   while (n--)
@@ -24,11 +15,20 @@ int main() {
     if (a < 10) {
       cout << a;
     } else {
-      int digitCnt = getDigit(a), p = pow(digitCnt - 1);
+    	
+    	long long aCopy = a;
+    	int digitCnt = 0;
+    	while(aCopy){
+    		 aCopy/=10;
+    		 digitCnt++;
+    	}
+    	
+      int p = pow(digitCnt - 1);
       if (!(a % p) && a / p == 1) {
         a--;
         digitCnt--;
       }
+      
       long long p2 = pow(digitCnt/2) , 
                 left = a / p2, 
                 leftUnsure = left / (digitCnt % 2 ? 10 : 1),
