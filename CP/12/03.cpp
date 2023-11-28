@@ -2,18 +2,14 @@
 #include <iostream>
 using namespace std;
 
+int y, m, d, s;
 
-
-int getDayCntbyYYMM(int y,int m) {
-	int dt[] = {-1,31,28,31,30,31,30,31,31,30,31,30,31};
-	if ((!(y % 4) && y % 100) || !(y % 400)) {
-		dt[2]++;
-	}
+int getDayCntbyYYMM2() {
+	int dt[] = {0,31,28+((!(y % 4) && y % 100) || !(y % 400)) ,31,30,31,30,31,31,30,31,30,31};
 	return dt[m];
 }
 
 int main() {
-    int y, m, d, s;
     while (cin >> y) {
         cin.ignore();
         cin >> m;
@@ -21,16 +17,16 @@ int main() {
         cin >> d;
         cin >> s;
 
-        if (d > getDayCntbyYYMM(y,m)) {
+        if (d > getDayCntbyYYMM2()) {
             cout << "Invalid date!\n";
             continue;
         }
         int flag = s > 0;
-        s = flag ? s : -s;
+        s = max(s,-s);
         while(s--){
         	if(flag) {
                 d++;
-                if (d > getDayCntbyYYMM(y,m)) {
+                if (d > getDayCntbyYYMM2()) {
                     d = 1;
                     if (++m > 12) {
                        m = 1;
@@ -45,7 +41,7 @@ int main() {
                         m = 12;
                         y--;
                     }
-                    d = getDayCntbyYYMM(y,m);
+                    d = getDayCntbyYYMM2();
                 }
         	}
         }
