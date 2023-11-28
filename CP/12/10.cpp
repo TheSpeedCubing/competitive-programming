@@ -2,7 +2,7 @@
 
 using namespace std;
 
-long long pow(int n) {
+long long pow10(int n) {
   long long i = 1;
   while (n--)
     i *= 10;
@@ -10,27 +10,27 @@ long long pow(int n) {
 }
 
 int main() {
-  long long a;
-  while (cin >> a) {
-    if (a < 10) {
-      cout << a;
+  long long n;
+  while (cin >> n) {
+    if (n < 10) {
+      cout << n;
     } else {
     	
-    	long long aCopy = a;
+    	long long buf = n;
     	int digitCnt = 0;
-    	while(aCopy){
-    		 aCopy/=10;
+    	while(buf){
+    		 buf/=10;
     		 digitCnt++;
     	}
     	
-      int p = pow(digitCnt - 1);
-      if (!(a % p) && a / p == 1) {
-        a--;
+      int p = pow10(digitCnt - 1);
+      if (!(n % p) && n / p == 1) {
+        n--;
         digitCnt--;
       }
       
-      long long p2 = pow(digitCnt/2) , 
-                left = a / p2, 
+      long long p2 = pow10(digitCnt/2) , 
+                left = n / p2, 
                 leftUnsure = left / (digitCnt % 2 ? 10 : 1),
                 leftUnsureCopy = leftUnsure,
                 reverseU = 0;
@@ -40,13 +40,13 @@ int main() {
           leftUnsureCopy /= 10;
       }
   
-      int flag = (a % p2) < reverseU;
-      cout << left - flag;
+      buf = (n % p2) < reverseU;
+      cout << left - buf;
       
-      a = leftUnsure - (flag && !(digitCnt % 2 && left%10));
-      while (a) {
-         cout << a % 10;
-         a /= 10;
+      n = leftUnsure - (buf && !(digitCnt % 2 && left%10));
+      while (n) {
+         cout << n % 10;
+         n /= 10;
       }
     }
     cout << "\n";
