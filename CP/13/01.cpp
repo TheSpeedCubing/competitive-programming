@@ -1,30 +1,28 @@
-#include <iostream>
-#include <algorithm>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-typedef unsigned long long VeryLong;
+typedef unsigned long long ItsSoFuckingLong;
 
-VeryLong P(VeryLong A, VeryLong B) {
+ItsSoFuckingLong P(ItsSoFuckingLong A, ItsSoFuckingLong B) {
     if(A < B) 
       return 0;
       
-    VeryLong t = 1, 
+    ItsSoFuckingLong t = 1, 
              i = A - B + 1;
-    while(i <= A){
+    while(i <= A) {
     	 t *= i++;
     }
     return t;
 }
 
-VeryLong F(VeryLong N) {
+ItsSoFuckingLong F(ItsSoFuckingLong N) {
     if(N == 0) 
       return 0;
     
-    vector<VeryLong> digit;
+    vector<ItsSoFuckingLong> digit;
     
-    VeryLong temp = N;
+    ItsSoFuckingLong temp = N;
     while(temp) {
     	 digit.push_back(temp % 10);
     	 temp /= 10;
@@ -34,7 +32,7 @@ VeryLong F(VeryLong N) {
     
     bool used[12] = {0};
 
-    VeryLong size = digit.size(), 
+    ItsSoFuckingLong size = digit.size(), 
              result = 1, 
              i = 1;
     while(i < size) {
@@ -59,7 +57,7 @@ VeryLong F(VeryLong N) {
 }
 
 int main() {
-    VeryLong l = 0, r;
+    ItsSoFuckingLong l, r;
     while(cin >> l >> r) {
         cout << F(r + 1) - F(l) << "\n";
     }
