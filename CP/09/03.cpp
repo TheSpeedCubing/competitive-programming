@@ -14,8 +14,8 @@ int main()
 		int data[] = {0,31,28+((!(yy % 4) && yy % 100) || !(yy % 400))
 		,31,30,31,30,31,31,30,31,30,31};
 		
-		if(dd > data[mm] || dd < 1)
-		  cout <<"Invalid date\n";
+		if(dd > data[mm] || dd < 1 || mm > 12)
+		  cout <<"Invalid date!\n";
 		else {
 			while(mm--) {
 			 	  dd+=data[mm];
