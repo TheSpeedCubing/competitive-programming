@@ -26,7 +26,6 @@ int main() {
     cnt++;
     int x = rand() % base;
     swap(d[x], d[base - 1]);
-    //T--;
 
     int n[5], s[5], i = 0,
     diff = 1,
