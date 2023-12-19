@@ -21,7 +21,9 @@ int main()
       sort(arr.begin(), arr.end());
       
       i = 0;
-      while(i<c)
-        cout << arr.at(i)+1 << ((i++==c-1) ? "\n":" ");
+      while(i<c) {
+        cout << arr.at(i)+1 << ((i==c-1) ? "\n":" ");
+        i++;
+      }
     }
 }
