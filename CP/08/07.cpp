@@ -12,7 +12,7 @@ int main()
 		else printf("\n");
 		
 	  cin >> heal;
-  	int mm[heal+1]={0},
+  	int mm[101]={0},
   	in,movement=0,
   	min=2147483647,i=0;
 	  for(;i<heal;i++){
