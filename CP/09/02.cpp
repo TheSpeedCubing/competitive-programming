@@ -1,6 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -13,17 +11,15 @@ int J(int n,int i) {
 int main()
 {
     while(cin >> n >> m >> c) {
-      vector<int> arr;
+      set<int> arr;
       i = -c + 1;
       while(i<1)
-    	  arr.push_back(J(n,n+ i++));
-    	  
-      sort(arr.begin(), arr.end());
+    	  arr.insert(J(n,n+ i++));
       
       i = 0;
-      while(i<c) {
-        cout << arr.at(i)+1 << ((i==c-1) ? "\n":" ");
-        i++;
+      for(int d : arr) {
+      	 cout << (i++ ? " ":"") << d+1;
       }
+      cout <<"\n";
     }
 }
