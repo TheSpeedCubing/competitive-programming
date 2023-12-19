@@ -1,12 +1,11 @@
-#include <iostream>
-#include <cmath>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
 {
 	double x , p;
 	while(cin >> x >> p) {
-		 double low = 0, high = x ,mid;2
+		 double low = 0, high = x ,mid;
 		 while(1){
 		 	  mid = (low + high) / 2.0;
 		 	  double error = mid * mid - x;
