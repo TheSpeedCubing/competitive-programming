@@ -1,10 +1,10 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-    char buffer[1024];
-    while(cin.getline(buffer, 1024, ',')){
-       	cout << buffer <<" ";
+    string s;
+    while(getline(cin,s, ',')){
+       	cout << s <<" ";
 		    cin.ignore(1024,',');
 		    cin.ignore(1024,',');
         int a, t=5;
