@@ -1,4 +1,5 @@
 #include <iostream>
+
 using namespace std;
 
 int main()
@@ -7,7 +8,7 @@ int main()
 	
 	while(cin >> n && n){
 		
-		 int a[n], k = n, i = 0, cnt = 0;
+		 int a[1024], k = n, i = 0, cnt = 0;
 		 
 		 for(;i<n;i++)
 		 	  cin >> a[i];
