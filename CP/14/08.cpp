@@ -8,7 +8,7 @@ int main() {
 
   while (T--) {
     cin >> s;
-    int nums[s], i = 0;
+    int nums[10000], i = 0;
 
     while (i < s)
       cin >> nums[i++];
