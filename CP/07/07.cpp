@@ -1,5 +1,5 @@
-#include <iostream>
-#include <math.h>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 int main() {
@@ -8,6 +8,6 @@ int main() {
         double y = 1;
         while (n--)
             y *= n + 1;
-       cout << (int)(y / pow(10, (int) log10(y)))<<"\n";
+       cout << to_string(y)[0] <<"\n";
     }
 }
