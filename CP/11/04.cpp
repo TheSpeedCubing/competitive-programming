@@ -2,7 +2,7 @@
 
 using namespace std;
 
-long long M, n, data[32768];
+long long M, n, dt[32768];
 
 int main() {
 
@@ -10,13 +10,13 @@ int main() {
   	
     int i = n;
     while (i--)
-      cin >> data[i];
+      cin >> dt[i];
 
-    int result = data[0], j = 1;
+    int result = dt[0], j = 1;
     
     while (j < n) {
     	
-      int a = result, b = data[j++];
+      int a = result, b = dt[j++];
       while (b) {
         int temp = b;
         b = a % b;
