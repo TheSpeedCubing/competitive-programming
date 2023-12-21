@@ -15,3 +15,16 @@ int main() {
     cout << (m1 * b * c + m2 * c * a + m3 * a * b) % (a * b * c) << "\n";
   }
 }
+
+//#include <iostream>
+//using namespace std;
+
+//int main() {
+  //int a, b, c, r1, r2, r3;
+  //while (cin >> a >> r1 >> b >> r2 >> c >> r3) {
+    //int i = 0;
+    //while(i % a != r1 || i % b != r2 || i % c != r3)
+      //i++;
+      //cout << i <<"\n";
+  //}
+//}
