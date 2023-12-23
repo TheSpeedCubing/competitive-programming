@@ -22,7 +22,8 @@ int main()
 	string error;
 	while(1) {
 		if(error.length()) {
-		  s = error.substr(0,error.length()-1);
+			error.pop_back();
+		  s = error;
 		  error = "";
 		} else {
 			if(getline(cin,s))
@@ -76,7 +77,7 @@ int main()
 		  }
 		}
 		cout << s;
-		if(s[s.length()-1] != '\n')
+		if(s.back() != '\n')
 		  cout <<"\n";
 		}
 }
