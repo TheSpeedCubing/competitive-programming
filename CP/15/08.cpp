@@ -6,7 +6,6 @@ struct Pos {
   int x;
   int y;
   int step;
-  Pos(int x, int y, int step): x(x), y(y), step(step) {}
 };
 
 int destX, destY, found = 0 ,visited[8][8];
@@ -20,7 +19,7 @@ void canBFS(int x, int y, int step) {
       found = step + 1;
       return;
     }
-    q.push(Pos(x, y, step + 1));
+    q.push({x, y, step + 1});
   }
 }
 
@@ -41,9 +40,7 @@ int main() {
       destY = s2[1] - '0' - 1;
 
       if (!(x == destX && y == destY)) {
-
-          Pos start(x, y, 0);
-          q.push(start);
+          q.push({x,y,0});
           while (!q.empty()) {
             Pos p = q.front();
             int x = p.x, y = p.y, step = p.step;
