@@ -18,6 +18,7 @@ int main()
    		  score += in[i] == ans[i] ? sc[i] - 48 : (in[i] !='.' ? 48-min[i] : 0);
    	  }
    	}
-   	cout << ceil(100.0 * score / tt) <<"\n";
+   	int r = ceil(100.0 * score / tt);
+   	cout << (r >= 0 ? r : 0) <<"\n";
 	}
 }
