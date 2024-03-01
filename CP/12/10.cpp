@@ -2,21 +2,23 @@
 
 using namespace std;
 
-long long pow10(int n) {
-  long long i = 1;
+typedef unsigned long long Oh;
+
+Oh pow10(int n) {
+  Oh i = 1;
   while (n--)
     i *= 10;
   return i;
 }
 
 int main() {
-  long long n;
+  Oh n;
   while (cin >> n) {
     if (n < 10) {
       cout << n;
     } else {
     	
-    	long long buf = n;
+    	Oh buf = n;
     	int digitCnt = 0;
     	while(buf){
     		 buf/=10;
