@@ -2,19 +2,20 @@
 
 using namespace std;
 
-int main()
-{
-	int a,b,c;
-	while(cin >> a>>b>>c){
-		 int bottle = a , cap = a , drink = a;
-		do {
-		 	  int thisTime = bottle/b + cap/c;
+int main() {
+	size_t drink,b,c;
+	while(cin >> drink >> b >> c){
+		size_t cap = drink , bottle = drink;
+		while (bottle >= b || cap >= c) {
+		 	size_t thisTime = bottle/b + cap/c;
 		 	  
-		 	  bottle = bottle%b+thisTime;
-		 	  cap =  cap%c+thisTime;
+		 	bottle %= b;
+		 	cap %= c;
 		 	  
-		 	  drink+=thisTime;
-		 } while (bottle >= b || cap >= c);
-		 cout << drink <<" "<<bottle<<" "<<cap <<"\n";
+		 	drink += thisTime;
+		 	cap += thisTime;
+		 	bottle += thisTime;
+		}
+		cout << drink <<" "<<bottle<<" "<<cap <<"\n";
 	} 
 }
