@@ -1,7 +1,6 @@
 // Online C++ compiler to run C++ program online
 #include <iostream>
 #include <cstring>
-#include <iterator>
 
 using namespace std;
 
@@ -20,36 +19,26 @@ void print_list(Node* n) {
     cout << n->value <<" ";
     print_list(n->next);
 }
-
-void insert_node(int v,Node*& n) {
-    if (n == NULL || n->value >= v) {
-        n = new Node(v, n);
+void insert_node(int v, Node** n) {
+    if (*n == NULL || (*n)->value >= v) {
+        *n = new Node(v, *n);
     }
     else {
-        insert_node(v, n->next);
+        insert_node(v, &(*n)->next);
     }
 }
 
-void add_node(int v,Node*& n) {
-    if (n == NULL) {
-        n = new Node(v, n);
-    }
-    else {
-        add_node(v, n->next);
-    }
-}
-
-void delete_node(int v, Node*& n) {
-    if (n == NULL) 
+void delete_node(int v, Node** n) {
+    if (*n == NULL) 
         return;
 
-    if (n->value == v) {
-        Node* temp = n;
-        n = n->next;
+    if ((*n)->value == v) {
+        Node* temp = *n;
+        *n = (*n)->next;
         delete temp;
         delete_node(v, n);
     } else {
-        delete_node(v, n->next);
+        delete_node(v, &(*n)->next);
     }
 }
 
@@ -65,11 +54,13 @@ int main() {
         cin >> c;
         if (tolower(c) == 'i') {
             cout << "Input an integer? ";
-            insert_node(i,head);
+            cin >> i;
+            insert_node(i,&head);
         }
         else if (tolower(c) == 'd') {
             cout << "Delete which integer? ";
-            delete_node(i,head);
+            cin >> i;
+            delete_node(i,&head);
         }
         print_list(head);
     }
