@@ -26,6 +26,7 @@ polynomial Zero(polynomial p)
 
 int IsZero(polynomial p)
 {
+// add your code
 
 	int flag = 0;
 	for(int i : p.coef) {
@@ -53,9 +54,9 @@ int Coef(polynomial p, int expo)
 
 polynomial Attach(polynomial p, int coef, int expo)
 {
+// add your code
 	p.coef[expo] += coef;
 	p.degree = p.degree < expo ? expo : p.degree;
-// add your code
 	return p;
 }
 
@@ -107,21 +108,16 @@ void PrintPoly1(polynomial p)
 
 void PrintPoly2(polynomial_term t[], int start, int finish)
 {
-// add your code
+     // add your code
+	 
+    //find max degree
     int degree = 0;
+    int arr[100] = {};
     for(int i = start;i<=finish;i++) {
+      arr[t[i].expo] += t[i].coef;
       degree = t[i].expo > degree ? t[i].expo : degree;
     }
 
-    int arr[degree+1];
-    for(int i = 0;i<=degree;i++) {
-      arr[i] = 0;
-    }
-    for(int i = start;i<=finish;i++) {
-      arr[t[i].expo] = t[i].coef;
-    }
-
-    bool printed = false;
     for(int i = degree;i>=0;i--) {
       if(arr[i] ==0) {
         continue;
@@ -130,7 +126,6 @@ void PrintPoly2(polynomial_term t[], int start, int finish)
         if(i == 0) {
           printf("%d",arr[i]);
         } else printf("%dX^%d",arr[i],i);
-        printed = 1;
       } else {
         if(i == 0) {
           printf(" + %d",arr[i]);
