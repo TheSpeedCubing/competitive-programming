@@ -107,9 +107,6 @@ void PrintPoly1(polynomial p)
 
 void PrintPoly2(polynomial_term t[], int start, int finish)
 {
-   for(int i = 0;i<20;i++) {
-      printf("%d %d\n",t[i].coef,t[i].expo);
-   }
 // add your code
     int degree = 0;
     for(int i = start;i<=finish;i++) {
