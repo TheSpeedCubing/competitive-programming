@@ -29,10 +29,10 @@ int IsZero(polynomial p)
 // add your code
 
 	int flag = 0;
-	for(int i : p.coef) {
-		flag = flag | i;
+	for(int i = 0 ;i<=p.degree;i++) {
+		flag = flag | p.coef[i];
 	}
-	return !p.degree & !flag;
+	return !flag;
 }
 
 int Lead_Exp(polynomial p)
@@ -44,7 +44,7 @@ int COMPARE(int i, int j)
 {
 	
 // add your code	
-	return i < j ? 1 : (i == j ? 0 : -1);
+	return i > j ? 1 : (i == j ? 0 : -1);
 }
 
 int Coef(polynomial p, int expo)
@@ -112,7 +112,7 @@ void PrintPoly2(polynomial_term t[], int start, int finish)
 	 
     //find max degree
     int degree = 0;
-    int arr[100] = {};
+    int arr[20] = {};
     for(int i = start;i<=finish;i++) {
       arr[t[i].expo] += t[i].coef;
       degree = t[i].expo > degree ? t[i].expo : degree;
