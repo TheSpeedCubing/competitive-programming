@@ -65,31 +65,21 @@ void inputLinkTerms(linkedPolynomialTerm *&polyPtr, int coef, int expo)
 	linkedPolynomialTerm *tmpPtr;
 
 	tmpPtr = new linkedPolynomialTerm;
-	tmpPtr->coef = coef ;
+	tmpPtr->coef = coef;
 	tmpPtr->expo = expo;
+	
+	// add your code here
 
-  
-  linkedPolynomialTerm* t = polyPtr, *prev = NULL;
-	// add your code here 
-  if(polyPtr == NULL) {
-    cout <<"CREATE\n";
-    polyPtr = tmpPtr;
-    return;
-  }
-	while(t != NULL) {
-     cout << t->expo <<" "<<expo<<"\n";
-		if(t->expo == expo) {
-			t->coef = coef;
-			return;
-		}
-		if(t->expo < expo || t->nextTermPtr == NULL) {
-			tmpPtr->nextTermPtr = t->nextTermPtr;
-			t->nextTermPtr = tmpPtr;
-      return;
-		}
-   t = t->nextTermPtr;
-	}
-	return;
+    //insert node
+    if (polyPtr == NULL || polyPtr->expo < expo) {
+        tmpPtr->nextTermPtr = polyPtr;
+        polyPtr = tmpPtr;
+    } else if(polyPtr->expo == expo) { //update value
+        polyPtr->coef = coef;
+    } else { //iterate to next
+        inputLinkTerms(polyPtr->nextTermPtr,coef,expo);
+        free(tmpPtr);
+    }
 }
 
 
@@ -97,17 +87,57 @@ void addArrayBasedPoly(polynomialTerm a[], polynomialTerm b[], polynomialTerm d[
 {
 
 	// add your code here
-
+	int i = 0,j=0,k=0;
+	while(a[i].coef && b[j].coef) {
+		if(a[i].expo > b[j].expo) {
+			d[k++] = a[i++];
+		} else if(a[i].expo < b[j].expo) {
+			d[k++] = b[j++];
+		} else {
+			d[k].expo = a[i].expo;	
+		    d[k++].coef = a[i++].coef + b[j++].coef;
+		}
+	}
+	
+	while(a[i].coef) {
+		d[k++] = a[i++];
+	}
+	
+	while(b[j].coef) {
+		d[k++] = b[j++];
+	}
 	return;
+}
+
+
+void helper(linkedPolynomialTerm *&polyPtr, int coef, int expo) {
+    //insert node
+    if (polyPtr == NULL || polyPtr->expo < expo) {
+	    linkedPolynomialTerm *tmpPtr = new linkedPolynomialTerm;
+	    tmpPtr->coef = coef;
+	    tmpPtr->expo = expo;
+        tmpPtr->nextTermPtr = polyPtr;
+        polyPtr = tmpPtr;
+    } else if(polyPtr->expo == expo) { //update value
+        polyPtr->coef += coef;
+    } else { //iterate to next
+        helper(polyPtr->nextTermPtr,coef,expo);
+    }
 }
 
 linkedPolynomialTerm *addLinkBasedPoly(linkedPolynomialTerm *aPtr, linkedPolynomialTerm *bPtr)
 {
-	linkedPolynomialTerm *dPtr = nullptr;
-
-
+	linkedPolynomialTerm *dPtr;
 	// add your code here
-
+	dPtr = nullptr;
+	while(aPtr != nullptr) {
+	    helper(dPtr,aPtr->coef,aPtr->expo);
+	    aPtr = aPtr->nextTermPtr;
+	}
+	while(bPtr != nullptr) {
+	    helper(dPtr,bPtr->coef,bPtr->expo);
+	    bPtr = bPtr->nextTermPtr;
+	}
 
 	return dPtr;
 }
