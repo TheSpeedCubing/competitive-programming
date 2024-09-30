@@ -1,4 +1,4 @@
-// HW4.cpp : �w�q�D���x���ε{�����i�J�I�C
+// HW4.cpp :  w q D   x   ε{     i J I C
 //
 
 #include <iostream>
@@ -67,6 +67,36 @@ void inputTerms(polynomialTerm terms[], int coef, int expo)
 	}
 }
 
+//custom methods
+void addHelper(linkedPolynomialTerm *&polyPtr, int coef, int expo,bool add) {
+    
+    if (polyPtr == NULL || polyPtr->expo < expo) {
+	    linkedPolynomialTerm *tmpPtr = new linkedPolynomialTerm;
+	    tmpPtr->coef = coef;
+	    tmpPtr->expo = expo;
+        tmpPtr->nextTermPtr = polyPtr;
+        polyPtr = tmpPtr;
+    } else if(polyPtr->expo == expo) { //update value
+        polyPtr->coef = (add ? polyPtr->coef : 0)+ coef;
+    } else { //iterate to next
+        addHelper(polyPtr->nextTermPtr,coef,expo,add);
+    }
+}
+
+void removeZero(linkedPolynomialTerm** n) {
+    if (*n == NULL) 
+        return;
+
+    if ((*n)->coef == 0) {
+        linkedPolynomialTerm* temp = *n;
+        *n = (*n)->nextTermPtr;
+        delete temp;
+        removeZero(n);
+    } else {
+        removeZero(&(*n)->nextTermPtr);
+    }
+}
+
 void inputLinkTerms(linkedPolynomialTerm *&polyPtr, int coef, int expo)
 {
 	linkedPolynomialTerm *tmpPtr;
@@ -76,17 +106,8 @@ void inputLinkTerms(linkedPolynomialTerm *&polyPtr, int coef, int expo)
 	tmpPtr->expo = expo;
 	
 	// add your code here
-
-    //insert node
-    if (polyPtr == NULL || polyPtr->expo < expo) {
-        tmpPtr->nextTermPtr = polyPtr;
-        polyPtr = tmpPtr;
-    } else if(polyPtr->expo == expo) { //update value
-        polyPtr->coef = coef;
-    } else { //iterate to next
-        inputLinkTerms(polyPtr->nextTermPtr,coef,expo);
-        free(tmpPtr);
-    }
+    addHelper(polyPtr,coef,expo,false);
+    removeZero(&polyPtr);
 }
 
 
@@ -124,36 +145,21 @@ void addArrayBasedPoly(polynomialTerm a[], polynomialTerm b[], polynomialTerm d[
 	}
 }
 
-
-void helper(linkedPolynomialTerm *&polyPtr, int coef, int expo) {
-    //insert node
-    if (polyPtr == NULL || polyPtr->expo < expo) {
-	    linkedPolynomialTerm *tmpPtr = new linkedPolynomialTerm;
-	    tmpPtr->coef = coef;
-	    tmpPtr->expo = expo;
-        tmpPtr->nextTermPtr = polyPtr;
-        polyPtr = tmpPtr;
-    } else if(polyPtr->expo == expo) { //update value
-        polyPtr->coef += coef;
-    } else { //iterate to next
-        helper(polyPtr->nextTermPtr,coef,expo);
-    }
-}
-
 linkedPolynomialTerm *addLinkBasedPoly(linkedPolynomialTerm *aPtr, linkedPolynomialTerm *bPtr)
 {
 	linkedPolynomialTerm *dPtr;
 	// add your code here
 	dPtr = nullptr;
 	while(aPtr != nullptr) {
-	    helper(dPtr,aPtr->coef,aPtr->expo);
+	    addHelper(dPtr,aPtr->coef,aPtr->expo,true);
 	    aPtr = aPtr->nextTermPtr;
 	}
 	while(bPtr != nullptr) {
-	    helper(dPtr,bPtr->coef,bPtr->expo);
+	    addHelper(dPtr,bPtr->coef,bPtr->expo,true);
 	    bPtr = bPtr->nextTermPtr;
 	}
 
+    removeZero(&dPtr);
 	return dPtr;
 }
 
@@ -228,7 +234,7 @@ int main()
 			inputTerms( a, coef, expo );
 			inputLinkTerms( aPtr, coef, expo );
 		}
-
+		
 		cout << "\n\na = ";
 		printArrayBasedPoly( a );
 		cout << "\na = ";
@@ -268,4 +274,3 @@ int main()
 	}
 	return 0;
 }
- 
