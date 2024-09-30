@@ -42,22 +42,29 @@ void inputTerms(polynomialTerm terms[], int coef, int expo)
 {
 
 	// add your code here
- 
     for(int i = 0; i < MAX_TERMS; i++ ) {
-		if(terms[i].expo == expo) {
-			terms[i] = {coef,expo};
-			return;
-		}
-	    if(terms[i].expo < expo) {
-			for(int j = MAX_TERMS-1;j>i;j--) {
-				terms[j] = terms[j-1];
+		if(t[i].expo == expo) {
+			t[i] = {coef,expo};
+			if(coef == 0) {
+			    while(i < MAX_TERMS-1) {
+			        t[i] = t[i+1];
+			        i++;
+			    }
 			}
-			terms[i] = {coef,expo};
 			return;
 		}
+	    if(t[i].expo < expo) {
+	        //insert
+	        if(coef == 0) {
+	            return;
+	        }
+			for(int j = MAX_TERMS-1;j>i;j--) {
+				t[j] = t[j-1];
+			}
+			t[i] = {coef,expo};
+			return;
+	    }
 	}
-
-	return;
 }
 
 void inputLinkTerms(linkedPolynomialTerm *&polyPtr, int coef, int expo)
@@ -85,28 +92,36 @@ void inputLinkTerms(linkedPolynomialTerm *&polyPtr, int coef, int expo)
 
 void addArrayBasedPoly(polynomialTerm a[], polynomialTerm b[], polynomialTerm d[])
 {
-
 	// add your code here
+	polynomialTerm r[MAX_TERMS];
+	clear(r);
 	int i = 0,j=0,k=0;
 	while(a[i].coef && b[j].coef) {
 		if(a[i].expo > b[j].expo) {
-			d[k++] = a[i++];
+			r[k++] = a[i++];
 		} else if(a[i].expo < b[j].expo) {
-			d[k++] = b[j++];
+			r[k++] = b[j++];
 		} else {
-			d[k].expo = a[i].expo;	
-		    d[k++].coef = a[i++].coef + b[j++].coef;
+			r[k].expo = a[i].expo;	
+		    r[k++].coef = a[i++].coef + b[j++].coef;
 		}
 	}
 	
 	while(a[i].coef) {
-		d[k++] = a[i++];
+		r[k++] = a[i++];
 	}
 	
 	while(b[j].coef) {
-		d[k++] = b[j++];
+		r[k++] = b[j++];
 	}
-	return;
+	
+	//clear zero coef
+	int i2 = 0;
+	for(int i = 0;i<MAX_TERMS;i++) {
+	    if(r[i].coef != 0) {
+	        d[i2++] = r[i];
+	    }
+	}
 }
 
 
