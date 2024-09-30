@@ -121,9 +121,6 @@ int main()
 
 			inputTerm( a, coef, expo );
 		}
-	for(int i = 0;i<MAX_TERMS;i++) {
-	    cout << a[i].expo <<" "<<a[i].coef<<"\n";
-	}
 
 		cout << "\n\na = ";
 		printArrayBasedPoly( a );
