@@ -43,25 +43,25 @@ void inputTerms(polynomialTerm terms[], int coef, int expo)
 
 	// add your code here
     for(int i = 0; i < MAX_TERMS; i++ ) {
-		if(t[i].expo == expo) {
-			t[i] = {coef,expo};
+		if(terms[i].expo == expo) {
+			terms[i] = {coef,expo};
 			if(coef == 0) {
 			    while(i < MAX_TERMS-1) {
-			        t[i] = t[i+1];
+			        terms[i] = terms[i+1];
 			        i++;
 			    }
 			}
 			return;
 		}
-	    if(t[i].expo < expo) {
+	    if(terms[i].expo < expo) {
 	        //insert
 	        if(coef == 0) {
 	            return;
 	        }
 			for(int j = MAX_TERMS-1;j>i;j--) {
-				t[j] = t[j-1];
+				terms[j] = terms[j-1];
 			}
-			t[i] = {coef,expo};
+			terms[i] = {coef,expo};
 			return;
 	    }
 	}
