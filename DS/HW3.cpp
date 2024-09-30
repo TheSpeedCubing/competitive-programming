@@ -58,14 +58,13 @@ void inputTerm(polynomialTerm t[], int coef, int expo)
 		}
 	    if(t[i].expo < expo) {
 	        //insert
-	        if(coef == 0) {
-	            return;
-	        }
+	        if(coef != 0) {
 			for(int j = MAX_TERMS-1;j>i;j--) {
 				t[j] = t[j-1];
 			}
 			t[i] = {coef,expo};
-			return;
+		}
+		return;
 	    }
 	}
 }
