@@ -37,8 +37,6 @@ int main() {
         }
     }
     
-    sort(almostprime.begin(), almostprime.end());
-    
     LL t, l, h;
     cin >> t;
     while(cin >> l >> h) {
