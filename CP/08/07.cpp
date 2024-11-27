@@ -22,7 +22,7 @@ int main() {
       minimum = min(minimum, movement);
     }
     
-    minimum = abs(minimum);
+    minimum = max(-minimum, 0);
 	  
     for(int i=0;i<=heal;i++) {
       cout << *new string(minimum,'-') << name << "\n";
