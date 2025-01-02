@@ -24,11 +24,18 @@ int main() {
 	 sort(arr.begin(),arr.end());
 	 cin >> T;
 	 while(T--) {
-	 	  cin >> query;
-	 	  int index = find(arr.begin(), arr.end(), query) - arr.begin() + 1;
-	 	  if(index > arr.size()){
-	 	  	cout <<"None\n";
-	 	  } else 
-	 	    cout << index <<" "<<type[ABList[query]]<<"\n";
-	 }
+       cin >> query;
+      if(type[ABList[query]] == "None") {
+         cout <<"None\n";
+	 	  	continue;
+       }
+	 	  
+	 	  auto it = lower_bound(arr.begin(), arr.end(), query);
+	 	  if(it == arr.end()) {
+         cout <<"None\n";
+	 	  	continue;
+	 	  } 
+         cout << (distance(arr.begin(),it)+1) <<" "<< type[ABList[query]]<<"\n";
+	 	  
+   }
 }
