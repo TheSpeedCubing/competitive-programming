@@ -1,0 +1,57 @@
+1 
+A   I am not you and you are not I
+X
+
+1
+A   hello
+X
+
+1
+A   bbb aaaa
+A   ccc aaaa
+X
+
+3
+A   K L
+N K
+N L
+S
+C
+
+A   K L J
+N J
+N K
+N L
+S
+C
+
+A   K M L O F B A D E
+N M
+N B
+N K
+N F
+N E
+N O
+S
+C
+
+X
+
+4
+A    a b c d e f g h i j l m n l h l h a a
+Q    l
+Q    f
+C
+
+A    a 
+Q    a
+C
+X
+
+2
+R
+R
+R
+X
+
+0
