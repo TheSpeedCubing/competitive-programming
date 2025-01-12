@@ -6,7 +6,8 @@ int main()
 {
 	int n, q;
 	cin >> n;
-	int a[n], acc[n], backSlot = 0, i = 0;
+	//should be int
+	short a[n], acc[n], backSlot = 0, i = 0;
 	for(;i<n;i++){
 		cin >> a[i];
 		backSlot += (i % 2 ? -a[i] : a[i]);
