@@ -1,47 +1,42 @@
-#include <iostream>
-
-#include <string>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 int main() {
-  int a, b;
-  while (cin >> a >> b) {
-  	string result = to_string(a/b);
-  	if(a%b) {
-      result += ".";
-      a %= b;
-      int n[32768] = {0}, i = 0, len = result.length();
+    int q, p;
+    
+    while(cin>>q>>p) {
+      int cnt[100000] = {}, index[100000];
       
-      while (1) {
-      	
-        a *= 10;
-        
-        int breakFlag = 0, j = 0;
-        
-        for(;j<32768;j++) {
-        	if(n[j] == a) {
-        		breakFlag = 1;
-        		result = result.substr(0,len+j) + "(" + result.substr(len+j) + ")";
-        		break;
-        	}
+      cout << q/p;
+      q = 10 * (q < p ? q : q % p);
+      
+      cnt[q]++;
+      index[q] = 0;
+      
+      string s;
+      
+      int i = 1;
+      while(true) {
+        s += to_string(q/p);
+        q = 10*(q - q/p*p);
+        if(cnt[q]++) {
+          break;
         }
-        
-        if(breakFlag)
-          break;
-          
-        result += to_string(a / b);
-        
-        n[i] = a;
-        i++;
-        
-        a %= b;
-        if (!a) {
-          result += "(0)";
-          break;
+        index[q] = i++;
+        if (!q) {
+        	  s += "0";
+            break;
         }
       }
-  	} else result += ".(0)";
-  	cout <<result<<"\n";
-  }
+      
+      int bracketIndex = index[q];
+      
+      cout 
+           << "."
+           << s.substr(0, bracketIndex)
+           << "("
+           << s.substr(bracketIndex)
+           << ")\n";
+    }
 }
