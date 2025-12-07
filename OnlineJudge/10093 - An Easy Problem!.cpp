@@ -1,11 +1,13 @@
-#include <stdio.h>
+#include <bits/stdc++.h>
+
+using namespace std;
 
 int main() {
-    char s[1024];
-    while(scanf("%s",s) != EOF) {
+    string s;
+    while(cin >> s) {
         int N = 2;
         int sum = 0;
-        for(int i = 0;s[i];i++){
+        for(int i = 0; i < s.length();i++){
             int c = s[i];
             if('0' <= c && c <= '9'){
                  c = c - '0';
