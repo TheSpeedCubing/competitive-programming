@@ -9,11 +9,19 @@ int main() {
     t++;
     int arr[N];
     bool f = true;
-    for (int i = 0; i < N; i++) {
+    
+    cin >> arr[0];
+    if(arr[0] < 1) {
+        f = false;
+    }
+    
+    for (int i = 1; i < N; i++) {
       cin >> arr[i];
       if (arr[i] < 1) {
         f = false;
       }
+      if (arr[i] <= arr[i-1]) 
+           f = false;
     }
 
     bool dup[20001] = {};
@@ -22,8 +30,6 @@ int main() {
         if (!dup[arr[i] + arr[j]]) {
           dup[arr[i] + arr[j]] = true;
         } else f = false;
-        if (arr[i] > arr[j]) 
-           f = false;
       }
     }
     cout << "Case #" << t << ": It is ";
