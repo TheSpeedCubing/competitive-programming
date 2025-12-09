@@ -4,7 +4,7 @@ using namespace std;
 
 vector<int> result;
 vector<int> arr[101];
-bool visited[101], route[101];
+bool visited[101];
 
 void dfs(int i) {
 	visited[i] = true;
@@ -26,7 +26,6 @@ int main()
     while(m--) {
     	cin >> i >> j;
     	arr[i].push_back(j);
-    	route[j] = true;
     }
     
     for(int i = 1;i<=n;i++)
