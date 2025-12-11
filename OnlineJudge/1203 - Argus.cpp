@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    // time, period, q
+    // time, q, period
     set<tuple<int,int,int>> s;
     
     int q, p;
