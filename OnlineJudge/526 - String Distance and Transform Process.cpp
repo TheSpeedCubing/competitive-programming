@@ -28,7 +28,7 @@ vector<Op> backtracking(string a, string b, vector<vector<int>> dp) {
       }
       
       if(i > 0 && dp[i][j] == dp[i-1][j] + 1) {
-        ops.push_back({"Delete", i, false});
+        ops.push_back({"Delete", i, 0});
         i--;
         continue;
       }
