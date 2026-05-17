@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+map<int, set<int>> g;
+
+void addEdge(int u, int v) {
+  g[u].insert(v);
+  g[v].insert(u);
+}
+
+bool dfs(int i, vector<int>& color, bool f) {
+    color[i] = f;
+    for(int o : g[i]) {
+        if(color[o] == f) { // same color 
+            return false;
+        }
+        if(color[o] == -1) { // not visited
+            if(!dfs(o, color, !f)) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+int main() {
+    int n, l;
+    
+    
+    while(cin >> n && n && cin >> l) {
+        g.clear();
+        
+        int x, y;
+        
+        while(l--) {
+            cin >> x >> y;
+            addEdge(x, y);
+        }
+        vector<int> color(1024, -1);
+        cout << (dfs(0, color, true) ? "BICOLORABLE.\n" : "NOT BICOLORABLE.\n");
+    }
+}
