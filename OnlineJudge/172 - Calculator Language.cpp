@@ -53,7 +53,7 @@ int main() {
 					st.pop();
 				}
 				st.pop();
-			} else { // + - * / =
+			} else if(isOperator(c)) { // + - * / =
 				st.push(c);
 			}
 		}
