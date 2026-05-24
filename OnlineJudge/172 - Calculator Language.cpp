@@ -3,8 +3,8 @@
 using namespace std;
 
 struct N {
-	int i;
-	char c; // A-Z or 0 (value)
+	int i; // A-Z or value
+	bool f; // 1: A-Z, 0: value
 };
 
 int isOperator(char c) {
@@ -70,15 +70,15 @@ int main() {
 		for(string s : result) {
 		    char c = s[0];
 		    if(isupper(c)) { // A-Z
-		        st2.push({0, c});
+		        st2.push({c, true});
 		    } else if (s.length() == 1 && isOperator(c)) { // operator
 		        N b = st2.top();
 		        st2.pop();
 		        N a = st2.top();
 		        st2.pop();
 
-		        int av = a.c ? value[a.c] : a.i;
-                int bv = b.c ? value[b.c] : b.i;
+		        int av = a.f ? value[a.i] : a.i;
+                int bv = b.f ? value[b.i] : b.i;
 		        
 		        int k = 0;
 		        if(c == '+') {
@@ -90,13 +90,13 @@ int main() {
 		        } else if(c == '/') {
 		            k = av / bv;
 		        } else if(c == '=') {
-		            value[a.c] = bv;
+		            value[a.i] = bv;
 		            k = bv;
 		        }
 		        
-		        st2.push({k, 0});
+		        st2.push({k, false});
 		    } else { // number
-		        st2.push({stoi(s), 0});
+		        st2.push({stoi(s), false});
 		    }
 		}
 		
