@@ -1,0 +1,9 @@
+rows: 3
+cols: 1
+
+PLANT (0,0) banana
+PLANT (1,0) pine
+PLANT (2,0) coconut
+PRINT
+GROW 3
+print

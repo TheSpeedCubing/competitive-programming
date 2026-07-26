@@ -1,0 +1,29 @@
+rows: 1
+cols: 17
+
+PLANT (0,0) yam
+PLANT (0,1) lily
+PLANT (0,2) rose
+PLANT (0,3) willow
+PLANT (0,4) oak
+PLANT (0,5) sunflower
+PLANT (0,6) lettuce
+PLANT (0,7) tulip
+PLANT (0,8) garlic
+PLANT (0,9) zucchini
+PLANT (0,10) daisy
+PLANT (0,11) yam
+PLANT (0,12) tulip
+PLANT (0,13) rose
+PLANT (0,14) garlic
+PLANT (0,15) yam
+PLANT (0,16) yam
+print
+grow 5
+print
+cut
+print
+pick
+print
+harvest
+print

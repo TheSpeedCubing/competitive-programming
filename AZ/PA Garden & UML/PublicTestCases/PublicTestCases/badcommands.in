@@ -1,0 +1,19 @@
+rows: 3
+cols: 3
+
+PLANT (0,0) banana
+PLANT (0,1) oak
+PLANT (0,2) willow
+PLANT (2,0) lettuce
+PLANT (2,1) tomato
+PLANT (2,2) yam
+PLANT (1,0) rose
+PLANT (1,1) sunflower
+PLANT (1,2) lily
+print
+pick (0,0)
+harvest (1,1)
+cut (2,2)
+print
+grow 2 (3,3)
+print

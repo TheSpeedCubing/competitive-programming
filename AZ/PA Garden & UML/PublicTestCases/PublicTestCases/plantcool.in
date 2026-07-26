@@ -1,0 +1,51 @@
+rows: 7
+cols: 7
+
+PLANT (0,0) sunflower
+PLANT (1,1) iris
+PLANT (2,2) tulip
+PLANT (4,4) tulip
+PLANT (5,5) iris
+PLANT (6,6) sunflower
+PLANT (3,3) rose
+PLANT (0,6) sunflower
+PLANT (1,5) iris
+PLANT (2,4) tulip
+PLANT (4,2) tulip
+PLANT (5,1) iris
+PLANT (6,0) sunflower
+print
+grow 1 (3,3)
+print
+grow 1 (3,3)
+grow 1 tulip
+grow 1 (3,3)
+print
+grow 1 (3,3)
+grow 1 tulip
+grow 1 iris
+print
+grow 1 (3,3)
+grow 1 tulip
+grow 1 iris
+grow 1 sunflower
+print
+plant (3,0) yam
+plant (3,6) lettuce
+plant (0,3) tomato
+plant (6,3) zucchini
+grow 2 vegetable
+print
+pick rose
+plant (3,3) oak
+grow 5 (3,3) 
+print
+pick tulip
+pick (0,0)
+harvest (0,3)
+pick (0,6)
+pick sunflower
+cut (3,3)
+harvest
+pick
+print

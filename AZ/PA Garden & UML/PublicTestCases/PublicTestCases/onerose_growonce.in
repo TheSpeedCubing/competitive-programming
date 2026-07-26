@@ -1,0 +1,7 @@
+rows: 1
+cols: 1
+
+PLANT (0,0) rose
+PRINT
+GROW 1
+print

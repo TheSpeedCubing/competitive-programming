@@ -1,0 +1,9 @@
+rows: 1
+cols: 3
+
+PLANT (0,0) banana
+PLANT (0,1) tomato
+PLANT (0,2) sunflower
+PRINT
+GROW 1
+print
